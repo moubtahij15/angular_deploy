@@ -27,7 +27,9 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/@lottiefiles/lottie-player/dist/lottie-player.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -94,5 +96,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "838b5923-003d-4f16-886c-2b3dafd4518b"
   }
 }

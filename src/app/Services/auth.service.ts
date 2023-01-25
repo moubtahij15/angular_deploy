@@ -19,27 +19,34 @@ export class AuthService {
 
   constructor(private http: HttpClient, public router: Router) { }
 
-  login(user: User) {
+  login(user: User,role:string) {
+
+    user.grantType="password";
+    user.username=user.email;
+    user.withRefreshToken=true;
+
+    role === "Client" ? user.role="CLIENT":user.role="AGENT";
+
     console.log(user)
+
     return this.http
-      .post<any>(`${this.endpoint}/users/login`, user)
+      .post<any>(`${this.endpoint}/token`, user)
       .subscribe(
         (res: any) => {
-          console.log(res.token)
-          const decodedToken = this.helper.decodeToken(res.token);
-          console.log(decodedToken.roles[0].authority);
-          localStorage.setItem('access_token',res.token );
-          if(decodedToken.roles[0].authority=="ROLE_"){
-            this.router.navigate(['']);
-          }
-          else if(decodedToken.roles[0].authority=="ROLE"){
-            this.router.navigate(['']);
-          }
-
+          console.log(res)
+          // const decodedToken = this.helper.decodeToken(res.token);
+          localStorage.setItem('access_token',res.accessToken );
+          localStorage.setItem('refresh_token',res.refreshToken );
+          localStorage.setItem('role',res.role);
+          localStorage.setItem('id',res.client.id );
+          console.log(res.role);
+          res.role == "CLIENT" ?  this.router.navigate(['dashboard-client/']) : this.router.navigate(['dashboard-agent/'])
         }),
       (err:any)=>{console.log(JSON.parse(err))
       }
   }
+
+
 
   register(user: User) {
     console.log(user)

@@ -1,19 +1,24 @@
 import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './Routes/app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './Pages/login/login.component';
+import { LoginClientComponent } from './Pages/login-client/login.component';
 import { RegisterComponent } from './Pages/register/register.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthInterceptor} from "./Shared/auth.interceptor";
 import {ReactiveFormsModule} from "@angular/forms";
+import { LoginAgentComponent } from "./Pages/login-agent/login-agent.component";
+import { LoginFormComponent } from './Components/login-form/login-form.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
+    LoginClientComponent,
     RegisterComponent,
+    LoginAgentComponent,
+    LoginFormComponent
   ],
   imports: [
     BrowserModule,

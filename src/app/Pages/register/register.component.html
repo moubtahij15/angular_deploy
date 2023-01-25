@@ -11,18 +11,20 @@
 
 <div class="flex flex-wrap min-h-screen w-full content-center justify-center bg-gray-200 py-10">
 
-  <div class="flex flex-wrap content-center justify-center rounded-r-md" style="width: 24rem; height: 32rem;">
-    <lottie-player src="https://assets2.lottiefiles.com/private_files/lf30_jcn1rjuu.json"
-                   background="transparent"
-                   speed="1"
-                   style="width: 300px; height: 300px;"
-                   loop autoplay>
 
-    </lottie-player>
-  </div>
 
-  <div class="flex shadow-md">
+  <div class="flex justify-center items-center shadow-md">
 
+    <div class="flex flex-wrap content-center justify-center rounded-r-md" style="width: 24rem; height: 32rem;">
+      <lottie-player src="https://assets2.lottiefiles.com/private_files/lf30_jcn1rjuu.json"
+                     background="transparent"
+                     speed="1"
+                     class="ml-16 mr-16"
+                     style="width: 300px; height: 300px;"
+                     loop autoplay>
+
+      </lottie-player>
+    </div>
     <div class="w-full  bg-white p-5 rounded-lg lg:rounded-l-none">
       <h3 class="pt-4 text-2xl text-center">Create an Account!</h3>
       <form class="px-8 pt-6 pb-8 mb-4 bg-white rounded" [formGroup]="RegisterForm" (ngSubmit)="RegisterUser()">

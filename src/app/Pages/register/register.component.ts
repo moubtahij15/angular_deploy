@@ -1,14 +1,15 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {Router} from "@angular/router";
 import {AuthService} from "../../Services/auth.service";
+import {HotToastService} from "@ngneat/hot-toast";
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit{
 
 
   RegisterForm: FormGroup;
@@ -17,7 +18,8 @@ export class RegisterComponent {
   constructor(
     private router:Router,
     private fb:FormBuilder,
-    public authService: AuthService
+    public authService: AuthService,
+    private toast: HotToastService
   ) {
 
     this.RegisterForm= this.fb.group({
@@ -37,6 +39,11 @@ export class RegisterComponent {
   Login(){
     this.router.navigate(['login']);
   }
+
+  ngOnInit(): void {
+    this.toast.success("azertyu")
+  }
+
 
 
 }

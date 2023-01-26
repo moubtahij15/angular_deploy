@@ -10,6 +10,7 @@ import {AuthInterceptor} from "./Shared/auth.interceptor";
 import {ReactiveFormsModule} from "@angular/forms";
 import { LoginAgentComponent } from "./Pages/login-agent/login-agent.component";
 import { LoginFormComponent } from './Components/login-form/login-form.component';
+import {HotToastModule} from "@ngneat/hot-toast";
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { LoginFormComponent } from './Components/login-form/login-form.component
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    HotToastModule.forRoot(),
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

@@ -9,5 +9,13 @@ export interface User{
   cin: string;
   accountType: string;
 
+  grantType:string;
+  username:string;
+  withRefreshToken:boolean;
+  role:string;
+  refreshToken:string;
+
+
+
 
 }

@@ -5,12 +5,17 @@ import {RegisterComponent} from "../Pages/register/register.component";
 import {CommonModule} from "@angular/common";
 import { LoginClientComponent } from "../Pages/login-client/login.component";
 import { AuthGuard } from "../Shared/auth.guard";
+import {LoginAgentComponent} from "../Pages/login-agent/login-agent.component";
 
 const routes: Routes = [
   {path: '',redirectTo:'/login-client',pathMatch:'full' },
   {
     path: "login",
     component: LoginClientComponent
+  },
+  {
+    path: "loginAgent",
+    component: LoginAgentComponent
   },
   {
     path: "register",

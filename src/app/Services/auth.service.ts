@@ -38,8 +38,8 @@ export class AuthService {
           localStorage.setItem('access_token',res.accessToken );
           localStorage.setItem('refresh_token',res.refreshToken );
           localStorage.setItem('role',res.role);
-          localStorage.setItem('id',res.client.id );
-          console.log(res.role);
+          role === "Client" ? localStorage.setItem('id',res.client.id):localStorage.setItem('id',res.agent.id);
+
           res.role == "CLIENT" ?  this.router.navigate(['dashboard-client/']) : this.router.navigate(['dashboard-agent/'])
         }),
       (err:any)=>{console.log(JSON.parse(err))
